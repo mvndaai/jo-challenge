@@ -27,6 +27,7 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
+    margin: 1rem;
 }
 
 a { color:var(--libertarian-yellow); }
@@ -67,3 +68,7 @@ body * {
 }
 .social .icons a { color:var(--text-color); }
 .social .icons a:hover { color:var(--text-color); }
+
+.examples img {
+    max-width: 90vw;
+}
