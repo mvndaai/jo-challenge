@@ -48,11 +48,15 @@
     <div class="meme-box">
         <div class="box flex-column">
             <div class="hashtag">#JoJorgensenVictimlessCrimeChallenge</div>
-            <div class="description">Post yourself committing a harmless victimless crime illegal somewhere but legal where you live</div>
+            <div class="description">Post yourself doing something that would be a victimless crime in another jursidiction</div>
         </div>
     </div>
 
-    <p><a href="https://joj2020.com/" target="_blank"><img class="quote"src="quote.jpg"></a>
+    <div class="pic-box">
+        <span id="pic-go-left"><i class="pic-nav fa fa-caret-left fa-5x"></i></span>
+        <a href="https://joj2020.com/" target="_blank"><img id="qoute" class="quote"src="quote_0.jpg"></a>
+        <span id="pic-go-right"><i class="pic-nav fa fa-caret-right fa-5x"></i></span>
+    </div>
 
     <div class="why flex-column">
         <h2>Why?</h2>
@@ -103,4 +107,20 @@
     </div>
 
 </body>
+<script>
+    let pic = 0;
+    const lastpic = 2
+
+    function switchPicture(i) {
+        pic += i;
+        if (pic > lastpic) pic = 0;
+        if (pic < 0) pic = lastpic;
+        console.log(pic);
+        document.getElementById('qoute').src = 'quote_' + pic + '.jpg';
+    }
+
+    document.getElementById('pic-go-left').onclick = function(){ switchPicture(-1) };
+    document.getElementById('pic-go-right').onclick = function(){ switchPicture(1) };
+
+</script>
 </html>

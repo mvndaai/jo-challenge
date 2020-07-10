@@ -63,3 +63,16 @@ body * {
     width: 500px;
     max-width: 90vw;
 }
+
+.pic-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+
+.pic-nav {
+    margin: 0 1rem;
+    cursor: pointer;
+}
