@@ -53,7 +53,7 @@ body * {
 .social .icons * {
     margin: 0 5px;
 }
-.social .icons a { color:white; }
+.social .icons a { color:white; text-decoration: none;}
 .social .icons a:hover { color:white; }
 
 .examples img {
