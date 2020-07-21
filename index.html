@@ -47,7 +47,7 @@
             <i class="pic-nav fa fa-caret-left fa-5x"></i>
         </span>
 
-        <a href="https://joj2020.com/" target="_blank">
+        <a href="https://www.jo20.com/" target="_blank">
             <img id="qoute" class="quote" src="quote_0.jpg">
         </a>
 
@@ -60,7 +60,7 @@
         <h2>Why?</h2>
 
         <p>
-            <a href="https://joj2020.com/" target="_blank">Jo Jorgensen</a>
+            <a href="hhttps://www.jo20.com/" target="_blank">Jo Jorgensen</a>
             is the only presidential candidate that supports
             <a href="https://www.facebook.com/JoJorgensen2020/posts/296201338442884" target="_blank">decriminalizing</a>
             victimless crimes.
@@ -123,6 +123,17 @@
 <script>
     let pic = 0;
     const lastpic = 4
+    let timeoutID = null;
+
+    function autoChangePictures(){
+        if (timeoutID) clearTimeout(timeoutID)
+        timeoutID = setTimeout(function() {
+            switchPicture(1);
+            autoChangePictures();
+        } , 5000);
+    }
+    autoChangePictures();
+
 
     function switchPicture(i) {
         pic += i;
@@ -130,7 +141,9 @@
         if (pic < 0) pic = lastpic;
         console.log(pic);
         document.getElementById('qoute').src = 'quote_' + pic + '.jpg';
+        autoChangePictures();
     }
+
 
     document.getElementById('pic-go-left').onclick = function () { switchPicture(-1) };
     document.getElementById('pic-go-right').onclick = function () { switchPicture(1) };
