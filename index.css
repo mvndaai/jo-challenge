@@ -59,9 +59,13 @@ body * {
 .examples img {
     max-width: 80vw;
 }
-.quote {
+#quote {
     width: 500px;
     max-width: 80vw;
+}
+
+#meme {
+    max-width: 500px;
 }
 
 .pic-box {

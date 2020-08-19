@@ -5,7 +5,7 @@
     <title> Jo Jorgensen Victimless Crime Challenge </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="Description" content="Jo Jorgensen Victimless Crime Challenge" />
-    <meta property="og:image" content="http://jojorgensenvictimlesscrimechallenge.com/meme_0.png" />
+    <meta property="og:image" content="http://jojorgensenvictimlesscrimechallenge.com/img/meme_0.png" />
     <meta property="og:title" content="#JoJorgensenVictimlessCrimeChallenge" />
     <meta property="og:description"
         content="Post yourself doing something legal for you that would be a victimless crime in another state" />
@@ -48,7 +48,7 @@
         </span>
 
         <a href="https://www.jo20.com/" target="_blank">
-            <img id="qoute" class="quote" src="quote_0.jpg">
+            <img id="quote" class="quote" src="img/quote_0.jpg">
         </a>
 
         <span id="pic-go-right">
@@ -128,7 +128,17 @@
             Maryland 3-322 Take the sexual organ of another in the person's mouth https://law.justia.com/codes/maryland/2010/criminal-law/title-3/subtitle-3/3-322/
         -->
 
-        <img src="meme_0.png">
+
+        <div class="pic-box">
+            <span id="meme-go-left">
+                <i class="pic-nav fa fa-caret-left fa-5x"></i>
+            </span>
+            <img id="meme" src="img/meme_0.png">
+            <span id="meme-go-right">
+                <i class="pic-nav fa fa-caret-right fa-5x"></i>
+            </span>
+        </div>
+
     </div>
 
     <div class="social flex-column">
@@ -155,32 +165,43 @@
 </body>
 
 <script>
-    let pic = 0;
-    const lastpic = 5
+    let picLoc = {'quote': 0, 'meme': 0};
+    const quoteMax = 5;
+    const memeMax = 5;
     let timeoutID = null;
 
     function autoChangePictures(){
         if (timeoutID) clearTimeout(timeoutID)
         timeoutID = setTimeout(function() {
-            switchPicture(1);
+            switchPicture(1, "quote");
+            switchPicture(1, "meme");
             autoChangePictures();
         } , 5000);
     }
     autoChangePictures();
 
 
-    function switchPicture(i) {
-        pic += i;
-        if (pic > lastpic) pic = 0;
-        if (pic < 0) pic = lastpic;
-        console.log(pic);
-        document.getElementById('qoute').src = 'quote_' + pic + '.jpg';
+    function switchPicture(i, el) {
+        let ext = 'jpg';
+        let max = quoteMax;
+        if (el === 'meme'){
+            ext = 'png';
+            max = memeMax;
+        }
+
+        picLoc[el] += i;
+        if (picLoc[el] > max) picLoc[el] = 0;
+        if (picLoc[el] < 0) picLoc[el] = max;
+        document.getElementById(el).src = `img/${el}_${picLoc[el]}.${ext}`;
         autoChangePictures();
     }
 
 
-    document.getElementById('pic-go-left').onclick = function () { switchPicture(-1) };
-    document.getElementById('pic-go-right').onclick = function () { switchPicture(1) };
+    document.getElementById('pic-go-left').onclick = function () { switchPicture(-1, 'quote') };
+    document.getElementById('pic-go-right').onclick = function () { switchPicture(1, 'quote') };
+
+    document.getElementById('meme-go-left').onclick = function () { switchPicture(-1, 'meme') };
+    document.getElementById('meme-go-right').onclick = function () { switchPicture(1, 'meme') };
 </script>
 
 </html>
