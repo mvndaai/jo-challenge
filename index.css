@@ -56,16 +56,14 @@ body * {
 .social .icons a { color:white; text-decoration: none;}
 .social .icons a:hover { color:white; }
 
-.examples img {
-    max-width: 80vw;
-}
 #quote {
     width: 500px;
     max-width: 80vw;
 }
 
 #meme {
-    max-width: 500px;
+    width: 500px;
+    max-width: 80vw;
 }
 
 .pic-box {
